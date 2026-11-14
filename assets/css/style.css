@@ -1,0 +1,158 @@
+* {
+    margin: 0;
+    padding: 0;
+    --color-primary: #000;
+    --color-secondary: #fff;
+    --color-tercerary: #ff0000;
+    --color-quarta: rgb(158, 66, 0);
+}
+
+body {
+    background: var(--color-primary);
+    color: var(--color-secondary);
+}
+
+img {
+    width: 100%;
+
+}
+
+li {
+    list-style: none;
+}
+
+.container-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    margin: 0 15px;
+}
+
+.container-header section {
+    padding: 10px;
+}
+
+.header-logo img {
+    width: 35px;
+    border-radius: 50%;
+}
+
+/* navbar do header abaixo */
+.container-li {
+    display: flex;
+    flex-direction: row;
+    gap: 9%;
+
+}
+
+.container-li ul {
+    text-transform: uppercase;
+}
+
+.container-li ul:hover {
+    cursor: pointer;
+    color: red;
+    transition: all .7s linear;
+}
+
+.btn-cart:hover {
+    transition: all .7s ease;
+    color: #a52a2a;
+    cursor: pointer;
+}
+
+/* MAIN */
+
+.section-hero {
+    background-image: url(../../src/images/hero2.jfif);
+    background-size: 150%;
+    background-position: 80% 100%;
+    height: 35vh;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.section-hero .btn-ofertas {
+    background: var(--color-quarta);
+    color: var(--color-secondary);
+    font-weight: 800;
+    text-transform: uppercase;
+
+    margin: 30px;
+    width: 100px;
+    height: 40px;
+
+    border-radius: 20px;
+    border: transparent;
+}
+
+.section-hero .btn-ofertas:hover {
+    transition: all .3s ease-in;
+
+    cursor: pointer;
+    background-color: transparent;
+    border: 1px solid #ff0000;
+    color: #ff0000;
+}
+
+/* CARDAPIO */
+.container-txt h3.txt-cardapio {
+    text-transform: uppercase;
+    text-align: center;
+    color: white;
+
+    margin: 15px 0 0 0;
+}
+
+.container-categoria {
+    background: transparent;
+    height: 20vh;
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    justify-content: center;
+    gap: 3%;
+    scrollbar-width: auto;
+}
+
+.container-categoria button {
+    background: transparent;
+    color: #fff;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+
+    padding: 10px;
+    width: 110px;
+    height: 40px;
+
+    border-radius: 20px 20px 0 0;
+    border: 1px solid var(--color-quarta);
+}
+
+.container-categoria button.btn-select {
+    background: var(--color-quarta);
+}
+
+section.section-catalago {
+    height: 78vh;
+}
+
+/* MENU */
+.container-menu {
+    background: url(../../src/images/bg-cardapio-mobile.jfif);
+    background-size: 99%;
+}
+.container-menu div.catalago{
+    display: flex;
+    flex-direction: row;
+    margin: 0 10px;
+    padding: 10px 0;
+}
+.img-catalago {
+    width: 100px;
+    border-radius: 10px;
+    margin: 5px;
+}
