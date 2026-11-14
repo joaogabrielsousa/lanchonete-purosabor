@@ -150,6 +150,7 @@ section.section-catalago {
     flex-direction: row;
     margin: 0 10px;
     padding: 10px 0;
+    border: 1px solid black;
 }
 .img-catalago {
     width: 100px;
