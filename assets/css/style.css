@@ -1,10 +1,12 @@
 * {
-    margin: 0;
-    padding: 0;
     --color-primary: #000;
     --color-secondary: #fff;
     --color-tercerary: #ff0000;
     --color-quarta: rgb(158, 66, 0);
+    margin: 0;
+    padding: 0;
+
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
@@ -21,16 +23,28 @@ li {
     list-style: none;
 }
 
+.display-none {
+    display: none;
+}
+
+/* === HEADER === */
 .container-header {
+    height: 55px;
+    width: 100%;
+    padding: 0 10px;
+    background: var(--color-primary);
+    z-index: 1003;
+    position: fixed;
+
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     gap: 50px;
-    margin: 0 15px;
+
 }
 
-.container-header section {
+.container-header div {
     padding: 10px;
 }
 
@@ -40,11 +54,14 @@ li {
 }
 
 /* navbar do header abaixo */
+.navbar-header {
+    display: none;
+}
+
 .container-li {
     display: flex;
     flex-direction: row;
     gap: 9%;
-
 }
 
 .container-li ul {
@@ -57,21 +74,32 @@ li {
     transition: all .7s linear;
 }
 
-.btn-cart:hover {
-    transition: all .7s ease;
-    color: #a52a2a;
+.header-cart .btn-cart:hover {
     cursor: pointer;
 }
 
 /* MAIN */
-
+/* ======= HERO ========*/
 .section-hero {
     background-image: url(../../src/images/hero2.jfif);
-    background-size: 150%;
-    background-position: 80% 100%;
+    background-size: cover;
+    background-position: 80% 70%;
     height: 35vh;
+    padding: 55px 0;
+}
+
+.section-hero div {
+    margin: 0 30px;
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+    height: 100%;
+}
+
+.section-hero h1.txt-hero {
+    text-transform: uppercase;
+    width: 100px;
 }
 
 .section-hero .btn-ofertas {
@@ -80,7 +108,6 @@ li {
     font-weight: 800;
     text-transform: uppercase;
 
-    margin: 30px;
     width: 100px;
     height: 40px;
 
@@ -93,28 +120,42 @@ li {
 
     cursor: pointer;
     background-color: transparent;
-    border: 1px solid #ff0000;
-    color: #ff0000;
+    border: 1px solid var(--color-secondary);
+    color: var(--color-quarta);
 }
 
-/* CARDAPIO */
+/* === CATEGORIA/CARDAPIO  === */
+.container-txt {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 15px 0;
+}
+
 .container-txt h3.txt-cardapio {
     text-transform: uppercase;
     text-align: center;
     color: white;
+}
 
-    margin: 15px 0 0 0;
+.container-txt .bar {
+    background: var(--color-quarta);
+    height: 3px;
+    width: 25vw;
 }
 
 .container-categoria {
     background: transparent;
-    height: 20vh;
     display: flex;
     flex-direction: row;
     align-items: end;
-    justify-content: center;
     gap: 3%;
-    scrollbar-width: auto;
+
+    padding: 0 30px;
+
+    overflow: auto;
 }
 
 .container-categoria button {
@@ -130,6 +171,11 @@ li {
 
     border-radius: 20px 20px 0 0;
     border: 1px solid var(--color-quarta);
+    border-bottom: none;
+}
+
+.container-categoria button:hover {
+    cursor: pointer;
 }
 
 .container-categoria button.btn-select {
@@ -140,20 +186,154 @@ section.section-catalago {
     height: 78vh;
 }
 
-/* MENU */
+/* MENU/CARDAPIO */
 .container-menu {
     background: url(../../src/images/bg-cardapio-mobile.jfif);
-    background-size: 99%;
+    background-size: 110%;
+    padding: 20px 0;
+
+    border-top: 1px solid var(--color-quarta);
 }
-.container-menu div.catalago{
+
+.container-menu div.catalago {
     display: flex;
     flex-direction: row;
-    margin: 0 10px;
-    padding: 10px 0;
-    border: 1px solid black;
+
+    margin: 10px;
+    padding: 10px 5px;
+    background: rgba(255, 255, 255, 0.08);
+
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 15px;
+
 }
+
 .img-catalago {
     width: 100px;
     border-radius: 10px;
-    margin: 5px;
+}
+
+div.info-catalago {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin: 0 8px;
+}
+
+/* ==== MODAL CART ==== */
+
+div.container-modalCart {
+    height: 100%;
+    position: fixed;
+    z-index: 1001;
+    inset: 0;
+
+
+    background: rgba(0, 0, 0, 0.601);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.container-modalCart div.modal-cart {
+    height: 75vh;
+    width: 85vw;
+    padding: 20px 20px 0 20px;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 2fr 1fr;
+    align-items: center; 
+    justify-items: center;
+    gap: 20px;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    background: white;
+    color: black;
+
+    border-radius: 15px;
+}
+
+.modal-cart div.header-modal{
+    width: 90%;
+    padding: 0 0 5px 0;
+
+    display: flex;
+    flex-direction: row;  
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    border-bottom: 1px solid var(--color-primary);
+}
+div.icones-modal i.icone-cart{
+    height: 60px;
+    width: 60px;
+
+}
+.modal-cart div.cart{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px; 
+
+}
+
+div.cart .produto{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+
+    padding: 0 0 20px 0;
+
+    border-bottom: 1px solid black;
+}
+.produto img.img-produto{
+    width: 80px;
+    border-radius: 15px;
+
+} .produto .txt-produto{
+    display: flex;
+    flex-direction: column;
+}
+
+button.btn-compras {
+    background: #ff0000;
+    height: 40px;
+    width: 200%;
+
+    align-self:flex-end;
+    text-align: center;
+    
+}
+
+/* = BUTTON CART = */
+.container-btnCart {
+    width: 60px;
+    height: 60px;
+    bottom: 5%;
+    left: 76%;
+
+    background: var(--color-quarta);
+    color: #fff;
+
+    border: none;
+    border-radius: 50%;
+    box-shadow: 2px 2px 7px #0000003f;
+
+    z-index: 1000;
+    position: fixed;
+
+    cursor: pointer;
+}
+
+.container-btnCart .btn-cart {
+    width: 35px;
+    height: 35px;
+
 }
